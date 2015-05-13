@@ -50,6 +50,24 @@ class ImageController extends Controller {
         return $image->response();
     }
 
+    public function showCategory($dimensions, $category, $filters = '')
+    {
+
+    }
+
+    private function parseDimensions($dimensions)
+    {
+        $sizes = array();
+
+        $sizes = explode('x', $dimensions);
+        $width = (int) isset($sizes[0]) ? $sizes[0] : 800;
+        $height = (int) isset($sizes[1]) ? $sizes[1] : 600;
+
+        return array(
+            'x' => $width,
+            'y' => $height
+        );
+    }
 
     private function fetchImage($category = '*')
     {
