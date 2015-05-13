@@ -8,22 +8,16 @@ class ImageController extends Controller {
 
     public function showSizes($dimensions, $filters = '')
     {
-        // Process Sizes (defaults if none set)
-        $sizes = array();
-
-        $sizes = explode('x', $dimensions);
-        $width = (int) isset($sizes[0]) ? $sizes[0] : 800;
-        $height = (int) isset($sizes[1]) ? $sizes[1] : 600;
-
+        $imageSizes = $this->parseDimensions($dimensions);
         $filePath = $this->fetchImage();
 
         Image::configure(array(
             'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
         ));
 
-        $image = Image::cache(function($image) use($filePath, $width, $height, $filters)
+        $image = Image::cache(function($image) use($filePath, $imageSizes, $filters)
         {
-            $image->make($filePath)->fit($width, $height);
+            $image->make($filePath)->fit($imageSizes['x'], $imageSizes['y']);
 
             if(env('IMAGE_FILTERS', false) === true)
             {
