@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends Controller {
 
@@ -17,11 +17,15 @@ class ImageController extends Controller {
 
         $filePath = $this->fetchImage();
 
-        $manager = new ImageManager(array(
+        Image::configure(array(
             'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
         ));
 
-        $image = $manager->make($filePath)->fit($width, $height);
+        $image = Image::cache(function($image) use($filePath, $width, $height)
+        {
+            $image->make($filePath)->fit($width, $height);
+        }, 3600, true);
+
         return $image->response();
     }
 
