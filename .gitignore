@@ -38,6 +38,7 @@
 !Gemfile
 .idea
 .env
+/public/imagebank
 
 # --------------------
 # NPM
