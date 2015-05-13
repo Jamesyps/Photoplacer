@@ -14,19 +14,20 @@ class ImageController extends Controller {
         $width = (int) isset($sizes[0]) ? $sizes[0] : 800;
         $height = (int) isset($sizes[1]) ? $sizes[1] : 600;
 
-        var_dump($this->fetchImages());
+        var_dump($this->fetchImage());
     }
 
-    private function fetchImages($category = '*')
+    private function fetchImage($category = '*')
     {
         $imagebankPath = 'imagebank';
+        $files = array();
 
         if($category === '*')
         {
             $files = Storage::allFiles($imagebankPath);
         }
 
-        return $files;
+        return $files[array_rand($files, 1)];
     }
 
 }
