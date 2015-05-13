@@ -18,6 +18,16 @@ class ImageController extends Controller {
         $imageSizes = $this->parseDimensions($dimensions);
         $filePath = $this->fetchImage();
 
+        return $this->renderImage($filePath, $imageSizes, $filters)->response();
+    }
+
+    public function showCategory($dimensions, $category, $filters = '')
+    {
+
+    }
+
+    private function renderImage($filePath, $imageSizes, $filters)
+    {
         $image = Image::cache(function($image) use($filePath, $imageSizes, $filters)
         {
             $image->make($filePath)->fit($imageSizes['x'], $imageSizes['y']);
@@ -44,12 +54,7 @@ class ImageController extends Controller {
 
         }, 3600, true);
 
-        return $image->response();
-    }
-
-    public function showCategory($dimensions, $category, $filters = '')
-    {
-
+        return $image;
     }
 
     private function parseDimensions($dimensions)
