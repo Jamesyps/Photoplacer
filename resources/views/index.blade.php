@@ -80,11 +80,72 @@
 
 <header class="doc-header">
     <div class="wrapper">
-
         <h1 class="doc-title">Image Bank</h1>
-
     </div>
 </header>
+
+<div class="doc-main">
+    <div class="wrapper">
+        <h2 class="doc-section-ref-title">Instructions</h2>
+
+        <div class="doc-content" style="overflow: auto;">
+            <h2>Basic Usage</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <tbody><tr>
+                        <th>URL</th>
+                        <th width="20%" class="center">Result</th>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100" alt="placeholder" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Filters</h2>
+            <p>You can apply basic image filters to by appending filter:{filter-name} to the end of the URL</p>
+            <div class="table-wrapper">
+                <table>
+                    <tbody><tr>
+                        <th>URL</th>
+                        <th width="20%" class="center">Result</th>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:greyscale</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:greyscale" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:invert</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:invert" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:pixelate</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:pixelate" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:blur</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:blur" alt="placeholder" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

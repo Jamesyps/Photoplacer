@@ -76,9 +76,9 @@ class ImageController extends Controller {
                     case 'invert':
                         $image->invert();
                         break;
-//                    case 'blur':
-//                        $image->blur(env('IMAGE_FILTERS_BLUR', 5));
-//                        break;
+                    case 'blur':
+                        $image->blur(env('IMAGE_FILTERS_BLUR', 5));
+                        break;
                     case 'pixelate':
                         $image->pixelate(env('IMAGE_FILTERS_PIXELATE', 10));
                         break;
