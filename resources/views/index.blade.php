@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
 
     <!-- Basic Info -->
-    <title>Root Studio ImageBank</title>
+    <title>Root Studio Image Bank</title>
     <meta name="description" content="{description}">
     <meta name="keywords" content="{keywords}" />
     <!-- ./Basic Info -->
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@publisher_handle">
 
-    <meta name="twitter:title" content="Root Studio ImageBank" />
+    <meta name="twitter:title" content="Root Studio Image Bank" />
     <meta name="twitter:description" content="{description}" />
 
     <meta name="twitter:url" content="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
@@ -30,7 +30,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="" />
 
-    <meta property="og:title" content="Root Studio ImageBank" />
+    <meta property="og:title" content="Root Studio Image Bank" />
     <meta property="og:description" content="{description}" />
 
     <meta property="og:url" content="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
