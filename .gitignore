@@ -38,6 +38,7 @@
 !Gemfile
 .idea
 .env
+!.env.example
 /public/imagebank
 
 # --------------------
