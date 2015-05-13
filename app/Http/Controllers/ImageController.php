@@ -6,6 +6,9 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends Controller {
 
+    /**
+     * Set up Image Editing Environment
+     */
     public function __construct()
     {
         Image::configure(array(
@@ -13,6 +16,15 @@ class ImageController extends Controller {
         ));
     }
 
+    /**
+     * Show Sizes
+     *
+     * Returns an image of the requested dimensions, optionally with a filter
+     *
+     * @param $dimensions
+     * @param string $filters
+     * @return mixed
+     */
     public function showSizes($dimensions, $filters = '')
     {
         $imageSizes = $this->parseDimensions($dimensions);
@@ -21,6 +33,16 @@ class ImageController extends Controller {
         return $this->renderImage($filePath, $imageSizes, $filters)->response();
     }
 
+    /**
+     * Show Category
+     *
+     * Returns an image from a category, optionally with a filter
+     *
+     * @param $dimensions
+     * @param $category
+     * @param string $filters
+     * @return mixed
+     */
     public function showCategory($dimensions, $category, $filters = '')
     {
         $imageSizes = $this->parseDimensions($dimensions);
@@ -29,6 +51,16 @@ class ImageController extends Controller {
         return $this->renderImage($filePath, $imageSizes, $filters)->response();
     }
 
+    /**
+     * Render Image
+     *
+     * Returns an Intervention/Image Object after being manipulated with the defined parameters
+     *
+     * @param $filePath
+     * @param $imageSizes
+     * @param $filters
+     * @return mixed
+     */
     private function renderImage($filePath, $imageSizes, $filters)
     {
         $image = Image::cache(function($image) use($filePath, $imageSizes, $filters)
@@ -60,6 +92,14 @@ class ImageController extends Controller {
         return $image;
     }
 
+    /**
+     * Parse Dimensions
+     *
+     * Returns workable values from a dimensions string (width x height)
+     *
+     * @param $dimensions
+     * @return array
+     */
     private function parseDimensions($dimensions)
     {
         $sizes = array();
@@ -74,6 +114,14 @@ class ImageController extends Controller {
         );
     }
 
+    /**
+     * Fetch Image
+     *
+     * Returns a randomly selected image from the imagebank, can be narrowed by category
+     *
+     * @param string $category
+     * @return mixed
+     */
     private function fetchImage($category = '*')
     {
         $imagebankPath = storage_path('app/' . ltrim(env('IMAGES_PATH'), '/'));
