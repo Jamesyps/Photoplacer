@@ -53,7 +53,7 @@ class ImageController extends Controller {
 
     private function fetchImage($category = '*')
     {
-        $imagebankPath = storage_path('app/imagebank');
+        $imagebankPath = storage_path('app/' . ltrim(env('IMAGES_PATH'), '/'));
         $files = array();
 
         if($category === '*')
