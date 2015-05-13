@@ -6,7 +6,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends Controller {
 
-    public function showSizes($dimensions)
+    public function showSizes($dimensions, $filters = '')
     {
         // Process Sizes (defaults if none set)
         $sizes = array();
@@ -21,13 +21,33 @@ class ImageController extends Controller {
             'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
         ));
 
-        $image = Image::cache(function($image) use($filePath, $width, $height)
+        $image = Image::cache(function($image) use($filePath, $width, $height, $filters)
         {
             $image->make($filePath)->fit($width, $height);
+
+            switch($filters)
+            {
+                case 'greyscale':
+                        $image->greyscale();
+                    break;
+                case 'invert':
+                        $image->invert();
+                    break;
+                case 'blur':
+                        $image->blur(15);
+                    break;
+                case 'pixelate':
+                        $image->pixelate(12);
+                    break;
+                default:
+                    break;
+            }
+
         }, 3600, true);
 
         return $image->response();
     }
+
 
     private function fetchImage($category = '*')
     {

@@ -17,3 +17,4 @@ $app->get('/', function() use ($app) {
 
 
 $app->get('/{dimensions}', 'App\Http\Controllers\ImageController@showSizes');
+$app->get('/{dimensions}/{filters}', 'App\Http\Controllers\ImageController@showSizes');
