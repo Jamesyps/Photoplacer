@@ -45,10 +45,10 @@ class ImageController extends Controller {
                         $image->invert();
                         break;
 //                    case 'blur':
-//                        $image->blur(env('IMAGE_BLUR', 5));
+//                        $image->blur(env('IMAGE_FILTERS_BLUR', 5));
 //                        break;
                     case 'pixelate':
-                        $image->pixelate(env('IMAGE_PIXEL', 10));
+                        $image->pixelate(env('IMAGE_FILTERS_PIXELATE', 10));
                         break;
                     default:
                         break;
@@ -65,8 +65,8 @@ class ImageController extends Controller {
         $sizes = array();
 
         $sizes = explode('x', $dimensions);
-        $width = (int) isset($sizes[0]) ? $sizes[0] : 800;
-        $height = (int) isset($sizes[1]) ? $sizes[1] : 600;
+        $width = (int) isset($sizes[0]) ? $sizes[0] : env('IMAGES_DEFAULT_X', 600);
+        $height = (int) isset($sizes[1]) ? $sizes[1] : env('IMAGES_DEFAULT_y', 400);
 
         return array(
             'x' => $width,
