@@ -6,14 +6,17 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends Controller {
 
+    public function __construct()
+    {
+        Image::configure(array(
+            'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
+        ));
+    }
+
     public function showSizes($dimensions, $filters = '')
     {
         $imageSizes = $this->parseDimensions($dimensions);
         $filePath = $this->fetchImage();
-
-        Image::configure(array(
-            'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
-        ));
 
         $image = Image::cache(function($image) use($filePath, $imageSizes, $filters)
         {
