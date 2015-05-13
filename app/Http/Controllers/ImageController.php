@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
 
 class ImageController extends Controller {
 
@@ -14,17 +15,24 @@ class ImageController extends Controller {
         $width = (int) isset($sizes[0]) ? $sizes[0] : 800;
         $height = (int) isset($sizes[1]) ? $sizes[1] : 600;
 
-        var_dump($this->fetchImage());
+        $filePath = $this->fetchImage();
+
+        $manager = new ImageManager(array(
+            'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
+        ));
+
+        $image = $manager->make($filePath)->fit($width, $height);
+        return $image->response();
     }
 
     private function fetchImage($category = '*')
     {
-        $imagebankPath = 'imagebank';
+        $imagebankPath = storage_path('app/imagebank');
         $files = array();
 
         if($category === '*')
         {
-            $files = Storage::allFiles($imagebankPath);
+            $files = glob($imagebankPath . '/**/*.{jpg,gif,png}', GLOB_BRACE);
         }
 
         return $files[array_rand($files, 1)];
