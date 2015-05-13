@@ -95,12 +95,12 @@
                 <table>
                     <tbody><tr>
                         <th>URL</th>
-                        <th width="20%" class="center">Result</th>
+                        <th width="30%" class="center">Result</th>
                     </tr>
                     <tr>
-                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100</code></td>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200</code></td>
                         <td align="center" width="20%">
-                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100" alt="placeholder" />
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200" alt="placeholder" />
                         </td>
                     </tr>
                     </tbody>
@@ -113,30 +113,68 @@
                 <table>
                     <tbody><tr>
                         <th>URL</th>
-                        <th width="20%" class="center">Result</th>
+                        <th width="30%" class="center">Result</th>
                     </tr>
                     <tr>
-                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:greyscale</code></td>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:greyscale</code></td>
                         <td align="center" width="20%">
-                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:greyscale" alt="placeholder" />
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:greyscale" alt="placeholder" />
                         </td>
                     </tr>
                     <tr>
-                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:invert</code></td>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:invert</code></td>
                         <td align="center" width="20%">
-                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:invert" alt="placeholder" />
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:invert" alt="placeholder" />
                         </td>
                     </tr>
                     <tr>
-                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:pixelate</code></td>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:pixelate</code></td>
                         <td align="center" width="20%">
-                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:pixelate" alt="placeholder" />
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:pixelate" alt="placeholder" />
                         </td>
                     </tr>
                     <tr>
-                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:blur</code></td>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:blur</code></td>
                         <td align="center" width="20%">
-                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/100x100/filter:blur" alt="placeholder" />
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/filter:blur" alt="placeholder" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Categories</h2>
+            <p>You can also specify which select of images you want from the Image Bank. Just as above, you can append
+                filters to these URLs</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <tbody><tr>
+                        <th>URL</th>
+                        <th width="30%" class="center">Result</th>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/nature</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/nature" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/food</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/food" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/architecture</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/architecture" alt="placeholder" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code><?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/silly</code></td>
+                        <td align="center" width="20%">
+                            <img src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/200x200/silly" alt="placeholder" />
                         </td>
                     </tr>
                     </tbody>
