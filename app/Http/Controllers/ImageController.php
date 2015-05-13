@@ -25,22 +25,24 @@ class ImageController extends Controller {
         {
             $image->make($filePath)->fit($width, $height);
 
-            switch($filters)
+            if(env('IMAGE_FILTERS', false) === true)
             {
-                case 'greyscale':
+                switch($filters) {
+                    case 'greyscale':
                         $image->greyscale();
-                    break;
-                case 'invert':
+                        break;
+                    case 'invert':
                         $image->invert();
-                    break;
-                case 'blur':
-                        $image->blur(15);
-                    break;
-                case 'pixelate':
-                        $image->pixelate(12);
-                    break;
-                default:
-                    break;
+                        break;
+//                    case 'blur':
+//                        $image->blur(env('IMAGE_BLUR', 5));
+//                        break;
+                    case 'pixelate':
+                        $image->pixelate(env('IMAGE_PIXEL', 10));
+                        break;
+                    default:
+                        break;
+                }
             }
 
         }, 3600, true);
