@@ -17,4 +17,7 @@ $app->get('/', function() use ($app) {
 
 
 $app->get('/{dimensions}', 'App\Http\Controllers\ImageController@showSizes');
-$app->get('/{dimensions}/{filters}', 'App\Http\Controllers\ImageController@showSizes');
+$app->get('/{dimensions}/filter:{filters:[a-z-]+}', 'App\Http\Controllers\ImageController@showSizes');
+
+$app->get('/{dimensions}/{category:[a-z-]+}', 'App\Http\Controllers\ImageController@showCategory');
+$app->get('/{dimensions}/{category:[a-z-]+}/filter:{filters:[a-z-]+}', 'App\Http\Controllers\ImageController@showCategory');

@@ -85,7 +85,7 @@ class ImageController extends Controller {
         }
         else
         {
-            if(!file_exists($imagebankPath))
+            if(!file_exists($imagebankPath .'/'. $category))
             {
                 abort(404);
             }
