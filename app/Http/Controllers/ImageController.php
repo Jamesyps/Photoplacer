@@ -23,7 +23,10 @@ class ImageController extends Controller {
 
     public function showCategory($dimensions, $category, $filters = '')
     {
+        $imageSizes = $this->parseDimensions($dimensions);
+        $filePath = $this->fetchImage($category);
 
+        return $this->renderImage($filePath, $imageSizes, $filters)->response();
     }
 
     private function renderImage($filePath, $imageSizes, $filters)
@@ -79,6 +82,15 @@ class ImageController extends Controller {
         if($category === '*')
         {
             $files = glob($imagebankPath . '/**/*.{jpg,gif,png}', GLOB_BRACE);
+        }
+        else
+        {
+            if(!file_exists($imagebankPath))
+            {
+                abort(404);
+            }
+
+            $files = glob($imagebankPath .'/'. $category . '/*.{jpg,gif,png}', GLOB_BRACE);
         }
 
         return $files[array_rand($files, 1)];
