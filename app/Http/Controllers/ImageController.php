@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller {
 
@@ -18,14 +19,14 @@ class ImageController extends Controller {
 
     private function fetchImages($category = '*')
     {
-        $imagebankPath = storage_path('app/imagebank');
+        $imagebankPath = 'imagebank';
 
         if($category === '*')
         {
-
+            $files = Storage::allFiles($imagebankPath);
         }
 
-        return $imagebankPath;
+        return $files;
     }
 
 }
