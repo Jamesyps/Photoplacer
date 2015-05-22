@@ -26,6 +26,9 @@
 
 <body>
 
+    <h1 class="logo">
+        <img src="/images/logo.png" srcset="/images/logo@2x.png 2x" alt="Placephoto" />
+    </h1>
 
 </body>
 </html>
