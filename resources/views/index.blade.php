@@ -30,5 +30,9 @@
         <img src="/images/logo.png" srcset="/images/logo@2x.png 2x" alt="Placephoto" />
     </h1>
 
+    <div class="url-builder">
+        <strong class="url-builder__title">Use the options below to create your placeholder image code</strong>
+    </div>
+
 </body>
 </html>

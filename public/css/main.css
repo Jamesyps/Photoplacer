@@ -439,9 +439,23 @@ html {
 
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #FFF;
 }
 
 .logo {
     margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.url-builder {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.url-builder__title {
+    display: block;
     text-align: center;
 }
