@@ -446,9 +446,14 @@ html {
 
 /* Layout */
 .logo {
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin: 50px auto 30px;
+    width: 400px;
     text-align: center;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
 }
 
 .url-builder {
