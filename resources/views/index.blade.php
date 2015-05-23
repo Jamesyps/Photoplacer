@@ -88,6 +88,15 @@
                 </div>
             </div>
         </form>
+
+        <div class="preview">
+            <div class="thumb">
+
+            </div>
+            <div class="output">
+
+            </div>
+        </div>
     </div>
 
 </body>
