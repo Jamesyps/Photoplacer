@@ -444,6 +444,7 @@ html {
     color: #FFF;
 }
 
+/* Layout */
 .logo {
     margin-top: 50px;
     margin-bottom: 30px;
@@ -452,10 +453,61 @@ html {
 
 .url-builder {
     margin: 0 auto;
-    width: 600px;
+    width: 550px;
 }
 
 .url-builder__title {
     display: block;
     text-align: center;
+}
+
+/* Form */
+.form {
+    padding-top: 30px;
+}
+
+.form__row {
+    overflow: auto;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+/* Dimensions */
+.dimensions .field {
+    width: 45%;
+}
+
+.dimensions .width {
+    float: left;
+}
+
+.dimensions .height {
+    float: right;
+}
+
+.dimensions .divider {
+    float: left;
+    width: 10%;
+
+    font-size: 34px;
+    text-align: center;
+}
+
+/* Inputs */
+.text-field {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #BC2A2A;
+    border-radius: 3px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    color: #607587;
+}
+
+.text-field:focus {
+    outline: none;
+    border-color: #F8D626;
 }

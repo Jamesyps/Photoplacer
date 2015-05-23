@@ -32,6 +32,20 @@
 
     <div class="url-builder">
         <strong class="url-builder__title">Use the options below to create your placeholder image code</strong>
+
+        <form class="form" action="">
+            <div class="form__row dimensions">
+                <div class="field width">
+                    <input type="text" name="x" class="text-field field-x" placeholder="Width..." />
+                </div>
+                <span class="divider">
+                    &times;
+                </span>
+                <div class="field height">
+                    <input type="text" name="y" class="text-field field-y" placeholder="Height..."/>
+                </div>
+            </div>
+        </form>
     </div>
 
 </body>
