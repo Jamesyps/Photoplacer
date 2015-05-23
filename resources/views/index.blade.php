@@ -160,6 +160,8 @@
             function setWidth() {
                 var newWidth = $(this).val();
 
+                if(parseInt(newWidth) === 0) return;
+
                 if(newWidth != widthVal)
                 {
                     widthVal = newWidth;
@@ -169,6 +171,8 @@
 
             function setHeight() {
                 var newHeight = $(this).val();
+
+                if(parseInt(newHeight) === 0) return;
 
                 if(newHeight != heightVal)
                 {
@@ -195,7 +199,7 @@
 
                 $('.output').text(document_url + url);
                 $('.thumb img').attr('src', document_url + url);
-            };
+            }
 
             updateUrl();
 
