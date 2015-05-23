@@ -52,37 +52,37 @@
                 <div class="field category">
                     <label for="category" class="label">Category</label>
                     <select class="select-field category" name="category" id="category">
-                        <option>Any</option>
-                        <option>Nature</option>
-                        <option>City</option>
-                        <option>Animals</option>
-                        <option>People</option>
+                        <option value="any">Any</option>
+                        <option value="nature">Nature</option>
+                        <option value="city">City</option>
+                        <option value="animals">Animals</option>
+                        <option value="people">People</option>
                     </select>
                 </div>
                 <div class="field filter">
                     <span class="label">Filter</span>
                     <label class="toggle-field">
-                        <input class="toggle" type="radio" name="filter" value="false" checked="checked"/>
+                        <input class="toggle filter-input" type="radio" name="filter" value="none" checked="checked"/>
                         None
                     </label>
 
                     <label class="toggle-field">
-                        <input class="toggle" type="radio" name="filter" value="greyscale" />
+                        <input class="toggle filter-input" type="radio" name="filter" value="greyscale" />
                         Greyscale
                     </label>
 
                     <label class="toggle-field">
-                        <input class="toggle" type="radio" name="filter" value="invert" />
+                        <input class="toggle filter-input" type="radio" name="filter" value="invert" />
                         Invert
                     </label>
 
                     <label class="toggle-field">
-                        <input class="toggle" type="radio" name="filter" value="blur" />
+                        <input class="toggle filter-input" type="radio" name="filter" value="blur" />
                         Blur
                     </label>
 
                     <label class="toggle-field">
-                        <input class="toggle" type="radio" name="filter" value="pixelate" />
+                        <input class="toggle filter-input" type="radio" name="filter" value="pixelate" />
                         Pixelate
                     </label>
                 </div>
@@ -101,6 +101,68 @@
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        (function($) {
+
+            // Urls
+            var document_url = document.URL;
+            var url_structure = "{width}x{height}{category}{filter}";
+
+            // Inputs
+            var $width = $('.field-x');
+            var $height = $('.field-y');
+            var $category = $('.category');
+            var $filter = $('.filter-input');
+
+            // Defaults
+            var widthVal = 100;
+            var heightVal = 100;
+            var categoryVal = '';
+            var filterVal = '';
+
+            $width.on('keyup', setWidth);
+            $height.on('keyup', setHeight);
+            $category.on('change', setCategory);
+            $filter.on('change', setFilter);
+
+            function setWidth() {
+                widthVal = $(this).val();
+                updateUrl();
+            }
+
+            function setHeight() {
+                heightVal = $(this).val();
+                updateUrl();
+            }
+
+            function setCategory() {
+                categoryVal = ($(this).val() == 'any') ? '' : '/' + $(this).val();
+                updateUrl();
+            }
+
+            function setFilter() {
+                filterVal = ($(this).val() == 'none') ? '' : '/filter:' + $(this).val();
+                updateUrl();
+            }
+
+            function updateUrl() {
+                var url = url_structure.replace('{width}', widthVal)
+                        .replace('{height}', heightVal)
+                        .replace('{category}', categoryVal)
+                        .replace('{filter}', filterVal);
+
+                $('.output').text(document_url + url);
+                $('.thumb img').attr('src', document_url + url);
+            };
+
+            updateUrl();
+
+        })(jQuery);
+    </script>
+    <!-- ./Scripts -->
 
 </body>
 </html>
