@@ -47,6 +47,19 @@
                     <input type="text" name="y" class="text-field field-y" id="height" value="100"/>
                 </div>
             </div>
+
+            <div class="form__row options">
+                <div class="field category">
+                    <label for="category" class="label">Category</label>
+                    <select class="select-field category" name="category" id="category">
+                        <option>Any</option>
+                        <option>Nature</option>
+                        <option>City</option>
+                        <option>Animals</option>
+                        <option>People</option>
+                    </select>
+                </div>
+            </div>
         </form>
     </div>
 

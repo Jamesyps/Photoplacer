@@ -494,6 +494,10 @@ html {
     text-align: center;
 }
 
+.options .field {
+    width: 45%;
+}
+
 /* Inputs */
 .text-field {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -511,6 +515,11 @@ html {
 .text-field:focus {
     outline: none;
     border-color: #F8D626;
+}
+
+.select-field {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .label {
