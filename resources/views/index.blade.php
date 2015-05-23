@@ -158,13 +158,23 @@
             $filter.on('change', setFilter);
 
             function setWidth() {
-                widthVal = $(this).val();
-                updateUrl();
+                var newWidth = $(this).val();
+
+                if(newWidth != widthVal)
+                {
+                    widthVal = newWidth;
+                    updateUrl();
+                }
             }
 
             function setHeight() {
-                heightVal = $(this).val();
-                updateUrl();
+                var newHeight = $(this).val();
+
+                if(newHeight != heightVal)
+                {
+                    heightVal = newHeight;
+                    updateUrl();
+                }
             }
 
             function setCategory() {
