@@ -12,5 +12,12 @@
 */
 
 $app->get('/', function() use ($app) {
-    return $app->welcome();
+    return view('index');
 });
+
+
+$app->get('/{dimensions:[0-9]+x[0-9]+}', 'App\Http\Controllers\ImageController@showSizes');
+$app->get('/{dimensions:[0-9]+x[0-9]+}/filter:{filters:[a-z-]+}', 'App\Http\Controllers\ImageController@showSizes');
+
+$app->get('/{dimensions:[0-9]+x[0-9]+}/{category:[a-z-]+}', 'App\Http\Controllers\ImageController@showCategory');
+$app->get('/{dimensions:[0-9]+x[0-9]+}/{category:[a-z-]+}/filter:{filters:[a-z-]+}', 'App\Http\Controllers\ImageController@showCategory');
