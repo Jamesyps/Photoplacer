@@ -498,6 +498,14 @@ html {
     width: 45%;
 }
 
+.options .category {
+    float: left;
+}
+
+.options .filter {
+    float: right;
+}
+
 /* Inputs */
 .text-field {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -520,6 +528,25 @@ html {
 .select-field {
     width: 100%;
     box-sizing: border-box;
+}
+
+.toggle-field {
+    display: block;
+    position: relative;
+    float: left;
+    margin-bottom: 5px;
+
+    padding-left: 25px;
+    width: 50%;
+
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.toggle-field .toggle {
+    position: absolute;
+    top: 2px;
+    left: 1px;
 }
 
 .label {

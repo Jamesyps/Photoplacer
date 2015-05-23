@@ -59,6 +59,33 @@
                         <option>People</option>
                     </select>
                 </div>
+                <div class="field filter">
+                    <span class="label">Filter</span>
+                    <label class="toggle-field">
+                        <input class="toggle" type="radio" name="filter" value="false" checked="checked"/>
+                        None
+                    </label>
+
+                    <label class="toggle-field">
+                        <input class="toggle" type="radio" name="filter" value="greyscale" />
+                        Greyscale
+                    </label>
+
+                    <label class="toggle-field">
+                        <input class="toggle" type="radio" name="filter" value="invert" />
+                        Invert
+                    </label>
+
+                    <label class="toggle-field">
+                        <input class="toggle" type="radio" name="filter" value="blur" />
+                        Blur
+                    </label>
+
+                    <label class="toggle-field">
+                        <input class="toggle" type="radio" name="filter" value="pixelate" />
+                        Pixelate
+                    </label>
+                </div>
             </div>
         </form>
     </div>
