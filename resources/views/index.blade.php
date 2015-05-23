@@ -91,10 +91,13 @@
 
         <div class="preview">
             <div class="thumb">
-
+                <img src="http://placehold.it/320x320" />
             </div>
-            <div class="output">
-
+            <div class="output-container">
+                <span class="label">URL</span>
+                <div class="output">
+                    Hello world
+                </div>
             </div>
         </div>
     </div>

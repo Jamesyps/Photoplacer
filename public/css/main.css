@@ -556,3 +556,42 @@ html {
     font-size: 12px;
     font-weight: 700;
 }
+
+/* Preview */
+.preview {
+    overflow: auto;
+    border-top: 1px solid #BC2A2A;
+    padding-top: 30px;
+}
+
+.thumb {
+    float: left;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 40%;
+}
+
+.thumb img {
+    display: block;
+    width: 100%;
+}
+
+.output-container {
+    float: left;
+    margin-left: 5%;
+    width: 55%;
+}
+
+.output {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #BC2A2A;
+    border-radius: 3px;
+
+    background-color: #FFF;
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    color: #607587;
+}
