@@ -487,9 +487,10 @@ html {
 
 .dimensions .divider {
     float: left;
+    padding-top: 19px;
     width: 10%;
 
-    font-size: 34px;
+    font-size: 33px;
     text-align: center;
 }
 
@@ -510,4 +511,12 @@ html {
 .text-field:focus {
     outline: none;
     border-color: #F8D626;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
 }

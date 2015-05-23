@@ -36,13 +36,15 @@
         <form class="form" action="">
             <div class="form__row dimensions">
                 <div class="field width">
-                    <input type="text" name="x" class="text-field field-x" placeholder="Width..." />
+                    <label for="width" class="label">Width</label>
+                    <input type="text" name="x" class="text-field field-x" id="width" value="100" />
                 </div>
                 <span class="divider">
                     &times;
                 </span>
                 <div class="field height">
-                    <input type="text" name="y" class="text-field field-y" placeholder="Height..."/>
+                    <label for="height" class="label">Height</label>
+                    <input type="text" name="y" class="text-field field-y" id="height" value="100"/>
                 </div>
             </div>
         </form>
