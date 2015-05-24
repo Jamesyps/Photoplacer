@@ -51,7 +51,7 @@
             <div class="form__row options">
                 <div class="field category">
                     <label for="category" class="label">Category</label>
-                    <select class="select-field category" name="category" id="category">
+                    <select class="select-field category-input" name="category" id="category">
                         <option value="any">Any</option>
                         @forelse($categories as $category)
                             <option value="{{ $category }}">{{ ucfirst($category) }}</option>
@@ -143,7 +143,7 @@
             // Inputs
             var $width = $('.field-x');
             var $height = $('.field-y');
-            var $category = $('.category');
+            var $category = $('.category-input');
             var $filter = $('.filter-input');
 
             // Defaults
