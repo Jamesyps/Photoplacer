@@ -20,5 +20,10 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="IMAGES_PATH" value="tests" />
+        <env name="IMAGES_DEFAULT_X" value="800" />
+        <env name="IMAGES_DEFAULT_Y" value="600" />
+        <env name="IMAGES_MAX_X" value="1000" />
+        <env name="IMAGES_MAX_Y" value="1000" />
     </php>
 </phpunit>
