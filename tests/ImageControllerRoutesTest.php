@@ -9,6 +9,25 @@ class ImageControllerRoutesTest extends TestCase {
         $this->assertResponseOk();
     }
 
+    public function testNoImagesInStore()
+    {
+        // Save old value
+        $existing = env('IMAGES_PATH');
+
+        putenv("IMAGES_PATH=foobar");
+        $_ENV['IMAGES_PATH'] = 'foobar';
+        $_SERVER['IMAGES_PATH'] = 'foobar';
+
+        $this->call('GET', '/100x100');
+
+        // Restore
+        putenv("IMAGES_PATH=" . $existing);
+        $_ENV['IMAGES_PATH'] = $existing;
+        $_SERVER['IMAGES_PATH'] = $existing;
+
+        $this->assertResponseStatus(404);
+    }
+
     public function testValidSizeResponse()
     {
         $this->call('GET', '/100x100');
