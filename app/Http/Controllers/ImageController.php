@@ -108,6 +108,16 @@ class ImageController extends Controller {
         $width = (int) isset($sizes[0]) ? $sizes[0] : env('IMAGES_DEFAULT_X', 600);
         $height = (int) isset($sizes[1]) ? $sizes[1] : env('IMAGES_DEFAULT_y', 400);
 
+        if($width < 1 || $width > env('IMAGES_MAX_X', 600))
+        {
+            $width = env('IMAGES_DEFAULT_X', 600);
+        }
+
+        if($height < 1 || $height > env('IMAGES_MAX_Y', 600))
+        {
+            $height = env('IMAGES_DEFAULT_Y', 400);
+        }
+
         return array(
             'x' => $width,
             'y' => $height
