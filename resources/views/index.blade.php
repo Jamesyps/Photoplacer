@@ -59,6 +59,8 @@
                         @endforelse
                     </select>
                 </div>
+
+                @if(env('IMAGE_FILTERS', false))
                 <div class="field filter">
                     <span class="label">Filter</span>
                     <label class="toggle-field">
@@ -86,6 +88,8 @@
                         Pixelate
                     </label>
                 </div>
+                @endif
+
             </div>
         </form>
 
