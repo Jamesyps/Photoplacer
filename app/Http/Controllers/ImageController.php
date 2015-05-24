@@ -151,6 +151,11 @@ class ImageController extends Controller {
             $files = glob($imagebankPath .'/'. $category . '/*.{jpg,gif,png}', GLOB_BRACE);
         }
 
+        if(count($files) == 0)
+        {
+            abort(404);
+        }
+
         return $files[array_rand($files, 1)];
     }
 

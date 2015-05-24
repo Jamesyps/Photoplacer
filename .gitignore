@@ -40,6 +40,7 @@
 .env
 !.env.example
 /public/imagebank
+/coverage
 
 # --------------------
 # NPM
