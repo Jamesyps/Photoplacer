@@ -38,4 +38,16 @@ class ImageControllerRoutesTest extends TestCase {
         $this->call('GET', '/100x000');
         $this->assertResponseOk();
     }
+
+    public function testInvalidCategoryResponse()
+    {
+        $this->call('GET', '/100x100/will-never-exist');
+        $this->assertResponseStatus(404);
+    }
+
+    public function testInvalidFilterName()
+    {
+        $this->call('GET', '/100x100/filter:foobar');
+        $this->assertResponseOk();
+    }
 }
