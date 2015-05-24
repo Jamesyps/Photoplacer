@@ -58,6 +58,12 @@ class ImageControllerRoutesTest extends TestCase {
         $this->assertResponseOk();
     }
 
+    public function testValidCategoryResponse()
+    {
+        $this->call('GET', '/100x100/images');
+        $this->assertResponseOk();
+    }
+
     public function testInvalidCategoryResponse()
     {
         $this->call('GET', '/100x100/will-never-exist');
