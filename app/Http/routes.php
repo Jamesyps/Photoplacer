@@ -12,7 +12,11 @@
 */
 
 $app->get('/', function() use ($app) {
-    return view('index');
+
+    $categories = \Storage::directories(env('IMAGES_PATH'));
+    $categories = array_map(function($path) { return basename($path); }, $categories);
+
+    return view('index', compact('categories'));
 });
 
 
