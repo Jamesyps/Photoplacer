@@ -42,6 +42,7 @@
 /public/imagebank
 /coverage
 /storage
+/_site
 
 # --------------------
 # NPM
