@@ -28,5 +28,11 @@
     },
     "config": {
         "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp .env.example .env"
+        ]
     }
 }
+
