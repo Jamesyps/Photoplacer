@@ -1,21 +1,21 @@
 # Site Meta Data
-title: Project Title
+title: Photoplacer
 author: James Wigger
-description: "A short introduction of your project, this will be displayed in the meta description and the main banner area."
+description: "A light weight Lumen application for embedding temporary images in a web template. Host your own stock images for use in your design & development workflow"
 keywords:
 
 # Sharing Options
-android_accent: "#00CBC4"
+android_accent: "#008955"
 google_analytics:
 
 # Site Config
 baseurl: ""
-url: "http://username.github.io/project"
+url: "http://jamesyps.github.io/Photoplacer"
 
 # Theme Settings
-hero_image: "images/default.jpg"
-homepage: "http://yoursite.com"
-download_link: "#"
+hero_image: "images/preview.png"
+homepage: "http://jameswigger.co.uk"
+download_link: "https://github.com/Jamesyps/Photoplacer/archive/master.zip"
 
 
 # Build settings
