@@ -1,0 +1,33 @@
+# Site Meta Data
+title: Project Title
+author: James Wigger
+description: "A short introduction of your project, this will be displayed in the meta description and the main banner area."
+keywords:
+
+# Sharing Options
+android_accent: "#00CBC4"
+google_analytics:
+
+# Site Config
+baseurl: ""
+url: "http://username.github.io/project"
+
+# Theme Settings
+hero_image: "images/default.jpg"
+homepage: "http://yoursite.com"
+download_link: "#"
+
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+
+permalink: none
+
+sass:
+  style: :compressed
+  compressed: true
+
+gems:
+  - jekyll-sitemap
