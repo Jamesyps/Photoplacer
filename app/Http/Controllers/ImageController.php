@@ -6,6 +6,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageController extends Controller {
 
+    private $imagesPath;
+
     /**
      * Set up Image Editing Environment
      */
@@ -14,6 +16,8 @@ class ImageController extends Controller {
         Image::configure(array(
             'driver' => extension_loaded('imagick') ? 'imagick' : 'gd'
         ));
+
+        $this->imagesPath = storage_path('app/' . ltrim(env('IMAGES_PATH'), '/'));
     }
 
     /**
@@ -60,6 +64,8 @@ class ImageController extends Controller {
      * @param $imageSizes
      * @param $filters
      * @return mixed
+     *
+     * @todo move private methods to own classes
      */
     private function renderImage($filePath, $imageSizes, $filters)
     {
@@ -99,6 +105,8 @@ class ImageController extends Controller {
      *
      * @param $dimensions
      * @return array
+     *
+     * @todo move private methods to own classes
      */
     private function parseDimensions($dimensions)
     {
@@ -131,29 +139,67 @@ class ImageController extends Controller {
      *
      * @param string $category
      * @return mixed
+     *
+     * @todo move private methods to own classes
      */
     private function fetchImage($category = '*')
     {
-        $imagebankPath = storage_path('app/' . ltrim(env('IMAGES_PATH'), '/'));
-        $files = array();
-
-        if($category === '*')
+        switch($category)
         {
-            $files = glob($imagebankPath . '/**/*.{jpg,gif,png}', GLOB_BRACE);
-        }
-        else
-        {
-            if(!file_exists($imagebankPath .'/'. $category))
-            {
-                abort(404);
-            }
-
-            $files = glob($imagebankPath .'/'. $category . '/*.{jpg,gif,png}', GLOB_BRACE);
+            case '*':
+                $file = $this->fetchImagesFromAll();
+                break;
+            default:
+                $file = $this->fetchImagesFromCategory($category);
+                break;
         }
 
-        if(count($files) == 0)
+        if(!$file)
         {
             abort(404);
+        }
+
+        return $file;
+    }
+
+    /**
+     * Fetch Images From All
+     *
+     * Returns a random image out of all the images in the storage area
+     *
+     * @return bool / string
+     *
+     * @todo move private methods to own classes
+     */
+    private function fetchImagesFromAll()
+    {
+        $files = glob($this->imagesPath . '/**/*.{jpg,gif,png}', GLOB_BRACE);
+
+        if(empty($files))
+        {
+            return false;
+        }
+
+        return $files[array_rand($files, 1)];
+    }
+
+    /**
+     * Fetch Images From Category
+     *
+     * Returns a random image from a specific folder in the storage area
+     *
+     * @param $category
+     * @return bool / string
+     *
+     * @todo move private methods to own classes
+     */
+    private function fetchImagesFromCategory($category)
+    {
+        $files = glob($this->imagesPath .'/'. $category . '/*.{jpg,gif,png}', GLOB_BRACE);
+
+        if(empty($files))
+        {
+            return false;
         }
 
         return $files[array_rand($files, 1)];
